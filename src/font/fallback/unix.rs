@@ -30,25 +30,9 @@ impl Fallback for PlatformFallback {
 const fn common_fallback() -> &'static [&'static str] {
     //TODO: abstract style (sans/serif/monospaced)
     &[
-        /* Sans-serif fallbacks */
-        "Noto Sans",
-        /* More sans-serif fallbacks */
-        "DejaVu Sans",
-        "FreeSans",
-        /* Mono fallbacks */
-        "Noto Sans Mono",
-        "DejaVu Sans Mono",
-        "FreeMono",
-        /* Symbols fallbacks */
-        "Noto Sans Symbols",
-        "Noto Sans Symbols2",
-        /* Emoji fallbacks.
-         * Emoji presentation clusters are upgraded to a color font during
-         * shaping (see `emoji_upgrade_clusters` in `shape.rs`), so the exact
-         * position here only matters for codepoints the color font lacks.
-         * See <https://github.com/pop-os/cosmic-text/issues/327>. */
-        "Noto Color Emoji",
-        //TODO: Add CJK script here for doublewides?
+        "Source Han Mono",
+        "Twitter Color Emoji",
+        "Symbola",
     ]
 }
 

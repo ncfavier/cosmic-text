@@ -170,9 +170,15 @@ pub struct FontFeatures {
 }
 
 impl FontFeatures {
-    pub const fn new() -> Self {
+    pub fn new() -> Self {
         Self {
-            features: Vec::new(),
+            features: vec![
+                // Disable all ligatures by default
+                Feature { tag: FeatureTag::STANDARD_LIGATURES, value: 0 },
+                Feature { tag: FeatureTag::CONTEXTUAL_LIGATURES, value: 0 },
+                Feature { tag: FeatureTag::CONTEXTUAL_ALTERNATES, value: 0 },
+                Feature { tag: FeatureTag::DISCRETIONARY_LIGATURES, value: 0 },
+            ],
         }
     }
 
@@ -381,7 +387,7 @@ impl<'a> Attrs<'a> {
     /// Create a new set of attributes with sane defaults
     ///
     /// This defaults to a regular Sans-Serif font.
-    pub const fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             color_opt: None,
             family: Family::SansSerif,
